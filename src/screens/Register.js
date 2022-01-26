@@ -8,9 +8,6 @@ const Register = ({navigation}) => {
             <View style={styles.board}>
                 <RegisterFormik navigation={navigation}/>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-                <Text style={styles.buttonText}>Return Login Page</Text>
-            </TouchableOpacity>
         </SafeAreaView>
     );
 }
