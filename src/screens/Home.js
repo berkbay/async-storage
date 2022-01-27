@@ -36,7 +36,7 @@ const Home = ({navigation}) => {
 export default Home;
 
 const styles = StyleSheet.create({
-    body: {backgroundColor: 'white', flex: 1},
+    body: {backgroundColor: 'white', flex: 1, marginTop: 50},
     textView: {justifyContent: "center", alignItems:"center"},
     text: {fontSize: 25, marginVertical:20, marginHorizontal:30},
     logout: {marginVertical:10}

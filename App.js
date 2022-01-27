@@ -1,28 +1,24 @@
 import MainStackNavigation from "./src/navigations/MainStackNavigation";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoggedInNavigation from "./src/navigations/LoggedInNavigation";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState()
   const StackController = async () => {
-    try {
-      const isLogin = await AsyncStorage.getItem('islogin');
-      if(isLogin === true) {
-        setLoggedIn(true)
-      }else {
-        setLoggedIn(false)
-      }
-    } catch (e) {
-      alert(e)
+    const loginCorrection = await AsyncStorage.getItem('islogin')
+    if(loginCorrection === 'true') {
+      setLoggedIn('true')
+    }else {
+      setLoggedIn('false')
     }
-    return loggedIn;
+    console.log(loggedIn);
   }
 
   StackController();
 
-  if(loggedIn === true){
+  if(loggedIn === 'true'){
     return (
         <LoggedInNavigation/>
     );

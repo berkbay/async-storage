@@ -19,13 +19,12 @@ const loginValidationSchema = Yup.object().shape({
 
 const LoginFormik = ({navigation}) => {
     const [hidePassword, setHidePassword] = useState(true)
-    const [isLogin, setIsLogin] = useState(AsyncStorage.getItem('islogin'))
     const login = async (values) => {
         try {
             const email = await AsyncStorage.getItem('email');
             const password = await AsyncStorage.getItem('password');
             if(values.email === email && values.password === password) {
-                setIsLogin(JSON.stringify(true))
+                await AsyncStorage.setItem('islogin', JSON.stringify( true))
                 navigation.navigate('Home')
             }
         } catch (e) {

@@ -4,11 +4,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const Logout = ({navigation}) => {
-    const [islogin,setIsLogin] = useState(AsyncStorage.getItem('islogin'))
 
     const onLogout = async () => {
         try {
-            setIsLogin(JSON.stringify(false))
+            await AsyncStorage.setItem('islogin', JSON.stringify(false))
             navigation.navigate('Login')
         }catch (e) {
             alert(e)

@@ -27,7 +27,7 @@ const RegisterFormik = ({navigation}) => {
         try {
             await AsyncStorage.setItem('email', values.email);
             await AsyncStorage.setItem('password', values.password);
-            await AsyncStorage.setItem('islogin', JSON.stringify(false))
+            await AsyncStorage.setItem('islogin',JSON.stringify( false))
             console.log('Okey.')
             navigation.navigate('Login')
         } catch(e) {
